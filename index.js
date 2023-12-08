@@ -65,4 +65,133 @@ function start() {
         });
 }
 
+function viewAllDepartments(){
+    db.query('SELECT * FROM department', (err, res) => {
+        if (err) throw err;
+        console.table(res);
+        start();
+      });
+}
+
+function viewAllRoles(){
+    db.query('SELECT * FROM roles', (err, res) => {
+        if (err) throw err;
+        console.table(res);
+        start();
+      });
+}
+
+function viewAllEmployees(){
+    db.query('SELECT * FROM employee', (err, res) => {
+        if (err) throw err;
+        console.table(res);
+        start();
+      });
+}
+
+function addDepartment(){
+    inquirer
+    .prompt([
+      {
+        name: 'dep_name',
+        type: 'input',
+        message: "Enter new department name:"
+      }
+    ])
+    .then((answers) => {
+      db.query(
+        'INSERT INTO department SET ?',
+        {
+          dep_name: answers.dep_name,
+        },
+        (err, res) => {
+          if (err) throw err;
+          console.log('Department added successfully!');
+          start();
+        }
+      );
+    });
+}
+
+function addRole(){
+    inquirer
+    .prompt([
+      {
+        name: 'title',
+        type: 'input',
+        message: "Enter new role name:"
+      },
+      {
+        name: 'salary',
+        type: 'number',
+        message: 'Enter salary of role:'
+      },
+      {
+        name: 'department_id',
+        type: 'number',
+        message: 'Enter department id of new role'
+      }
+    ])
+    .then((answers) => {
+      db.query(
+        'INSERT INTO roles SET ?',
+        {
+          title: answers.title,
+          salary: answers.salary,
+          department_id: answers.department_id
+        },
+        (err, res) => {
+          if (err) throw err;
+          console.log('Role added successfully!');
+          start();
+        }
+      );
+    });
+}
+
+function addEmployee(){
+    inquirer
+    .prompt([
+      {
+        name: 'first_name',
+        type: 'input',
+        message: "Enter employee's first name:"
+      },
+      {
+        name: 'last_name',
+        type: 'input',
+        message: "Enter employee's last name:"
+      },
+      {
+        name: 'role_id',
+        type: 'number',
+        message: "Enter employee's role ID:"
+      },
+      {
+        name: 'manager_id',
+        type: 'number',
+        message: "Enter employee's manager ID:"
+      },
+    ])
+    .then((answers) => {
+      db.query(
+        'INSERT INTO employee SET ?',
+        {
+          first_name: answers.first_name,
+          last_name: answers.last_name,
+          role_id: answers.role_id,
+          manager_id: answers.manager_id,
+        },
+        (err, res) => {
+          if (err) throw err;
+          console.log('Employee added successfully!');
+          start();
+        }
+      );
+    });
+
+}
+
 start();
+
+
