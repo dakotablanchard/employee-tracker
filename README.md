@@ -17,12 +17,12 @@ Simple content management system for an employee database.
 4. Run the code `npm i` to install dependencies
 5. Navigate your CLI to the db folder
 6. Enter `mysql -u root -p` and enter your MySQL password when prompted
-6. Once in MySQL, run the code `source schema.sql` to save the schematics of the database to your computer
+7. Once in MySQL, run the code `source schema.sql` to save the schematics of the database to your computer
 * OPTIONAL: If you would like the program to include MOCK DATA, run the code `source seeds.sql` at this stage in the install process. \
     If you want to start with an empty database (recommended) then skip this.
-7. Exit MySQL by typing `quit`
-8. Navigate your CLI back out of the db folder, and into the main folder containing all the code files (probably titled employee-tracker)
-9. Run the code `node index.js` to start the application
+8. Exit MySQL by typing `quit`
+9. Navigate your CLI back out of the db folder, and into the main folder containing all the code files (probably titled employee-tracker)
+10. Run the code `node index.js` to start the application
 
 ## Demo
 [![thumbnail of video walkthrough](./assets/vid-screenshot.png)](https://drive.google.com/file/d/1JmkqrxrU65N0q28psYhiM0kBGPIJuX9-/view?usp=sharing)
