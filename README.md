@@ -18,6 +18,8 @@ Simple content management system for an employee database.
 5. Navigate your CLI to the db folder
 6. Enter `mysql -u root -p` and enter your MySQL password when prompted
 6. Once in MySQL, run the code `source schema.sql` to save the schematics of the database to your computer
+* OPTIONAL: If you would like the program to include MOCK DATA, run the code `source seeds.sql` at this stage in the install process. \
+    If you want to start with an empty database (recommended) then skip this.
 7. Exit MySQL by typing `quit`
 8. Navigate your CLI back out of the db folder, and into the main folder containing all the code files (probably titled employee-tracker)
 9. Run the code `node index.js` to start the application
