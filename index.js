@@ -56,6 +56,10 @@ function start() {
                 case 'Add an employee':
                     addEmployee();
                     break;
+                    
+                case 'Update an employee role':
+                    updateEmployee();
+                    break;
 
                 case 'Exit':
                     db.end();
@@ -190,6 +194,39 @@ function addEmployee(){
       );
     });
 
+}
+
+function updateEmployee(){
+    inquirer
+    .prompt([
+      {
+        name: 'employee_id',
+        type: 'number',
+        message: "Enter the ID of the employee whose role you want to update:"
+      },
+      {
+        name: 'role_id',
+        type: 'input',
+        message: 'Enter the new role_id for the employee:',
+      },
+    ])
+    .then((answers) => {
+      db.query(
+        'UPDATE employee SET role_id = ? WHERE id = ?',
+        [answers.role_id, answers.employee_id],
+        (err, res) => {
+          if (err) throw err;
+
+          if (res.affectedRows > 0) {
+            console.log('Employee role updated successfully!');
+          } else {
+            console.log('Employee not found with the given ID.');
+          }
+
+          start();
+        }
+      );
+    });
 }
 
 start();

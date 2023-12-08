@@ -1,3 +1,4 @@
+-- MOCK EMPLOYEE INFO FOR TESTING
 INSERT INTO department (dep_name)
 VALUES ("Sales"),
        ("Engineering"),
