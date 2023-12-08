@@ -174,7 +174,8 @@ function addEmployee(){
       {
         name: 'manager_id',
         type: 'number',
-        message: "Enter employee's manager ID:"
+        message: "Enter employee's manager ID:",
+        default: null
       },
     ])
     .then((answers) => {
@@ -184,7 +185,7 @@ function addEmployee(){
           first_name: answers.first_name,
           last_name: answers.last_name,
           role_id: answers.role_id,
-          manager_id: answers.manager_id,
+          manager_id: answers.manager_id || answers.default
         },
         (err, res) => {
           if (err) throw err;
